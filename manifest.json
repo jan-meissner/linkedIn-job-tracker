@@ -1,5 +1,5 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "My Extension",
     "version": "1.0",
     "description": "Description of my extension",
@@ -8,7 +8,7 @@
     ],
     "content_scripts": [
       {
-        "matches": ["*://*/*"],
+        "matches": ["*://www.linkedin.com/*"],
         "js": ["content.js"]
       }
     ]
