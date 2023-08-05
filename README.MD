@@ -1,5 +1,3 @@
-GitHub Copilot: Here is a basic `README.md` file based on the `content.js` file you provided:
-
 # LinkedIn Job Tracker
 
 This is a browser extension that tracks which LinkedIn job postings you have already seen. It is designed to work on LinkedIn job search pages.
