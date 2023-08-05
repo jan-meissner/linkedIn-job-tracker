@@ -1,6 +1,6 @@
 # LinkedIn Job Tracker
 
-This is a browser extension that tracks which LinkedIn job postings you have already seen. It is designed to work on LinkedIn job search pages.
+This is a browser extension that tracks which LinkedIn job postings you have already seen. Unlike LinkedIn's dismissal function, this algorithm has no impact on recommendations.
 
 ## Installation
 
@@ -15,7 +15,7 @@ To install this extension, follow these steps:
 
 ## Usage
 
-The extension seamlessly functions on LinkedIn job search pages, automatically tracking viewed job posts and highlighting them in gray. Unlike LinkedIn's dismissal function, this algorithm has no impact on recommendations.
+The extension seamlessly functions on LinkedIn job search pages, automatically tracking viewed job posts and highlighting them in gray. 
 
 ## License
 
