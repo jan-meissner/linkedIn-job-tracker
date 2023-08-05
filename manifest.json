@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "My Extension",
+    "name": "LinkedIn Job Tracker",
     "version": "1.0",
-    "description": "Description of my extension",
+    "description": "Tracks which LinkedIn job postings you have already seen.",
     "permissions": [
       "activeTab",
       "storage"
@@ -12,7 +12,7 @@
     },
     "content_scripts": [
       {
-        "matches": ["*://www.linkedin.com/*"],
+        "matches": ["*://www.linkedin.com/jobs/search/*s"],
         "js": ["content.js"]
       }
     ]
