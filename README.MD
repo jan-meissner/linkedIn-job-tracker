@@ -15,7 +15,7 @@ To install this extension, follow these steps:
 
 ## Usage
 
-Once the extension is installed, it will automatically run on LinkedIn job search pages. It will keep track of which job postings you have already seen and highlight them in gray.
+The extension seamlessly functions on LinkedIn job search pages, automatically tracking viewed job posts and highlighting them in gray. Unlike LinkedIn's dismissal function, this algorithm has no impact on recommendations.
 
 ## License
 

@@ -1,31 +1,27 @@
 // load database
 DBlinkedInSeenJobs = readDatabase();
 
-/**
- * Reads the LinkedIn seen jobs database from local storage.
- * @returns {Array} An array of seen jobs.
- */
 function readDatabase() {
-    let database = [];
-    chrome.storage.local.get('linkedInSeenJobs', function(result) {
-        database = result.linkedInSeenJobs || [];
-    });
-    return database;
+    return JSON.parse(localStorage.getItem('linkedInSeenJobs')) || [];
 }
 
-/**
- * Deletes the LinkedIn seen jobs database from local storage.
- */
-function deleteDatabase() {
-    chrome.storage.local.remove('linkedInSeenJobs');
-}
-
-/**
- * Saves the LinkedIn seen jobs database to local storage.
- * @param {Array} database - An array of seen jobs to be saved.
- */
 function saveDatabase(database) {
-    chrome.storage.local.set({'linkedInSeenJobs': database});
+    localStorage.setItem('linkedInSeenJobs', JSON.stringify(database));
+}
+
+/**
+ * Calls the callback function when the specified selector exists in the DOM.
+ * @param {string} selector - The CSS selector to search for.
+ * @param {function} callback - The function to be called when the selector exists.
+ */
+function callWhenQuerySelectorExists(selector, callback) {
+    const interval = setInterval(function() {
+        const element = document.querySelector(selector);
+        if (element) {
+            clearInterval(interval);
+            callback();
+        }
+    }, 500);
 }
 
 /**
@@ -98,8 +94,11 @@ function onNewJobTitleElement(callback){
 
 // When the window is loaded, grey out seen jobs and set up a MutationObserver to detect newly added job title elements
 window.addEventListener('load', function(_event) {
-    extractJobTitleElements().forEach(greyOutSeenJob);
-    onNewJobTitleElement(greyOutSeenJob)
+    // Wait for the job search results to load
+    callWhenQuerySelectorExists('div.jobs-search-results-list', () => {
+        extractJobTitleElements().forEach(greyOutSeenJob);
+        onNewJobTitleElement(greyOutSeenJob)
+    });
 });
 
 // Listen for clicks on job title elements and marks them as seen if they haven't been seen before.
@@ -118,5 +117,10 @@ document.body.addEventListener('click', function(event) {
     }
 }); 
 
-
+document.addEventListener('keydown', function(event) {
+    if (event.ctrlKey && event.shiftKey && event.key === 'H') {
+        // Do something when the user presses Ctrl+Shift+H
+        localStorage.removeItem('linkedInSeenJobs');
+    }
+});
 
