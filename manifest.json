@@ -4,8 +4,12 @@
     "version": "1.0",
     "description": "Description of my extension",
     "permissions": [
-      "activeTab"
+      "activeTab",
+      "storage"
     ],
+    "action": {
+        "default_popup": "popup.html"
+    },
     "content_scripts": [
       {
         "matches": ["*://www.linkedin.com/*"],
