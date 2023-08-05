@@ -13,7 +13,7 @@ To install this extension, follow these steps:
 5. Click "Load unpacked" or "Load temporary add-on".
 6. Select the directory where you downloaded the source code.
 
-## Usage
+## Usage 
 
 The extension seamlessly functions on LinkedIn job search pages, automatically tracking viewed job posts and highlighting them in gray. 
 
